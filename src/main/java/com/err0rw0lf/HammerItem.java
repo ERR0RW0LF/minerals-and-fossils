@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -43,5 +44,12 @@ public class HammerItem extends MiningToolItem {
         return super.postMine(stack, world, state, pos, miner);
     }
 
+    @Override
+    public ActionResult use(World world, PlayerEntity user, Hand hand) {
+        ItemStack mainHand = user.getMainHandStack();
+        ItemStack offHand = user.getOffHandStack();
 
+        if (hand == Hand.MAIN_HAND && mainHand.getItem() instanceof HammerItem) {}
+        return super.use(world, user, hand);
+    }
 }
