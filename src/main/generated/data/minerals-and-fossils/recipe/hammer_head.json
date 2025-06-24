@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "multi_bench",
+  "key": {
+    "b": "minecraft:iron_block",
+    "i": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "ibi",
+    "ibi"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minerals-and-fossils:hammer_head"
+  }
+}

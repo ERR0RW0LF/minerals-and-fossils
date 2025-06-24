@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_hammer_head": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minerals-and-fossils:hammer_head"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minerals-and-fossils:hammer_head"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_hammer_head"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minerals-and-fossils:hammer_head"
+    ]
+  }
+}

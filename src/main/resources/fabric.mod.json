@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "minerals-and-fossils",
+	"version": "${version}",
+	"name": "Minerals And Fossils",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/minerals-and-fossils/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.err0rw0lf.MineralsAndFossils"
+		],
+		"client": [
+			"com.err0rw0lf.MineralsAndFossilsClient"
+		],
+		"fabric-datagen": [
+			"com.err0rw0lf.MineralsAndFossilsDataGenerator"
+		]
+	},
+	"mixins": [
+		"minerals-and-fossils.mixins.json",
+		{
+			"config": "minerals-and-fossils.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
