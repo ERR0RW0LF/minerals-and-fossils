@@ -35,6 +35,8 @@ public class ModItems {
 
     public static final Item HAMMER_HEAD = register("hammer_head", Item::new, new Item.Settings());
 
+    public static final Item STONE_FIND = register("stone_find", Item::new, new Item.Settings());
+
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS)
                 .register((itemGroup) -> itemGroup.add(ModItems.HAMMER));
