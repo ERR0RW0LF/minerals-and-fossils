@@ -25,6 +25,7 @@ public class MineralsAndFossilsRecipeProvider extends FabricRecipeProvider {
             public void generate() {
                 RegistryWrapper.Impl<Item> itemLookup = registries.getOrThrow(RegistryKeys.ITEM);
 
+                // Hammer head recipe
                 createShaped(RecipeCategory.MISC, ModItems.HAMMER_HEAD, 1)
                         .pattern("ibi")
                         .pattern("ibi")
@@ -34,6 +35,7 @@ public class MineralsAndFossilsRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModItems.HAMMER_HEAD),conditionsFromItem(ModItems.HAMMER_HEAD))
                         .offerTo(exporter);
 
+                // Hammer recipe
                 createShaped(RecipeCategory.MISC, ModItems.HAMMER, 1)
                         .pattern("h")
                         .pattern("s")
@@ -43,6 +45,7 @@ public class MineralsAndFossilsRecipeProvider extends FabricRecipeProvider {
                         .group("multi_bench")
                         .criterion(hasItem(ModItems.HAMMER),conditionsFromItem(ModItems.HAMMER))
                         .offerTo(exporter);
+
             }
         };
     }
