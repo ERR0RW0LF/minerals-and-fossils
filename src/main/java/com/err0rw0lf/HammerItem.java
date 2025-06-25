@@ -2,11 +2,15 @@ package com.err0rw0lf;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.EntityStatuses;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.network.packet.s2c.play.EntityStatusS2CPacket;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -46,10 +50,17 @@ public class HammerItem extends MiningToolItem {
 
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
+        //MineralsAndFossils.LOGGER.info("using Hammer");
         ItemStack mainHand = user.getMainHandStack();
         ItemStack offHand = user.getOffHandStack();
-
-        if (hand == Hand.MAIN_HAND && mainHand.getItem() instanceof HammerItem) {}
+        if (!world.isClient) {
+            FindItem findItem;
+            if (mainHand.getItem() instanceof HammerItem && offHand.getItem() instanceof FindItem) {
+                findItem = (FindItem) offHand.getItem();
+                findItem.openFind();
+                offHand.decrement(1);
+            }
+        }
         return super.use(world, user, hand);
     }
 }
