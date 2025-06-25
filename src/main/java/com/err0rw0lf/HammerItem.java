@@ -54,10 +54,9 @@ public class HammerItem extends MiningToolItem {
         ItemStack mainHand = user.getMainHandStack();
         ItemStack offHand = user.getOffHandStack();
         if (!world.isClient) {
-            FindItem findItem;
             if (mainHand.getItem() instanceof HammerItem && offHand.getItem() instanceof FindItem) {
-                findItem = (FindItem) offHand.getItem();
-                findItem.openFind();
+                FindItem findItem = (FindItem) offHand.getItem();
+                findItem.openFind((ServerWorld) world, user);
                 offHand.decrement(1);
             }
         }

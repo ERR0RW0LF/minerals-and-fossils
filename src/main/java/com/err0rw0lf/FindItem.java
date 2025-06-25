@@ -1,14 +1,39 @@
 package com.err0rw0lf;
 
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.server.world.ServerWorld;
+
+import java.util.Random;
 
 
 public class FindItem extends Item {
-    public FindItem(Item.Settings settings) {
+    private final LootTable lootTable;
+
+    public FindItem(LootTable lootTable, Item.Settings settings) {
         super(settings);
+        this.lootTable = lootTable;
     }
 
-    public void openFind() {
+    public void openFind(ServerWorld world, PlayerEntity player) {
+        float totalWeight = 0f;
+        for (LootEntry entry : lootTable.lootEntries) {
+            totalWeight += entry.chance;
+        }
+
+        float roll = world.random.nextFloat() * totalWeight;
+        float cumulative = 0f;
+
+        for (LootEntry entry : lootTable.lootEntries) {
+            cumulative += entry.chance;
+            if (roll < cumulative) {
+                ItemEntity drop = new ItemEntity(world, player.getX(), player.getY(), player.getZ(), new ItemStack(entry.item));
+                world.spawnEntity(drop);
+                break;
+            }
+        }
         MineralsAndFossils.LOGGER.info("Opened Find Item");
     }
 }

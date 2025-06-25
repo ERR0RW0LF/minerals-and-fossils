@@ -6,6 +6,7 @@ import net.minecraft.registry.*;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.*;
 
+import java.util.Arrays;
 import java.util.function.Function;
 
 public class ModItems {
@@ -35,7 +36,17 @@ public class ModItems {
 
     public static final Item HAMMER_HEAD = register("hammer_head", Item::new, new Item.Settings());
 
-    public static final Item STONE_FIND = register("stone_find", settings -> new FindItem(settings), new Item.Settings());
+    public static final LootTable STONE_FIND_LOOT = new LootTable(Arrays.asList(
+            new LootEntry(Items.DIAMOND, 0.01f),
+            new LootEntry(Items.COAL, 0.5f),
+            new LootEntry(Items.EMERALD, 0.005f)
+    ));
+
+    public static final Item STONE_FIND = register(
+            "stone_find",
+            settings -> new FindItem(STONE_FIND_LOOT, settings),
+            new Item.Settings()
+    );
 
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS)
