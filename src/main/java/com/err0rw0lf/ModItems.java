@@ -54,6 +54,17 @@ public class ModItems {
             new Item.Settings()
     );
 
+    public static final LootTable SAND_FIND_LOOT = new LootTable(Arrays.asList(
+            new LootEntry(Items.GOLD_NUGGET, 0.2f),
+            new LootEntry(Items.IRON_NUGGET, 0.3f)
+    ));
+
+    public static final Item SAND_FIND = register(
+            "sand_find",
+            settings -> new FindItem(SAND_FIND_LOOT, settings),
+            new Item.Settings()
+    );
+
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS)
                 .register((itemGroup) -> itemGroup.add(ModItems.HAMMER));
@@ -63,6 +74,9 @@ public class ModItems {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
                 .register((itemGroup) -> itemGroup.add(ModItems.STONE_FIND));
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
+                .register((itemGroup) -> itemGroup.add(ModItems.SAND_FIND));
     }
 
 }
