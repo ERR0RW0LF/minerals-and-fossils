@@ -19,7 +19,7 @@ public class HammerItem extends MiningToolItem {
     }
 
     public boolean canMine(BlockState state, World world, BlockPos pos, PlayerEntity miner) {
-        return !miner.isCreative();
+        return !state.isOf(Blocks.BUDDING_AMETHYST) && !miner.isCreative();
     }
 
     @Override
