@@ -6,8 +6,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
 
-import java.util.Random;
-
 
 public class FindItem extends Item {
     private final LootTable lootTable;
