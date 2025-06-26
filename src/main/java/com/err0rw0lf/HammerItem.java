@@ -50,11 +50,19 @@ public class HammerItem extends MiningToolItem {
         //MineralsAndFossils.LOGGER.info("using Hammer");
         ItemStack mainHand = user.getMainHandStack();
         ItemStack offHand = user.getOffHandStack();
+
+        // check if player is sneaking
         if (!world.isClient) {
-            if (mainHand.getItem() instanceof HammerItem && offHand.getItem() instanceof FindItem) {
+            if (user.isSneaking() && mainHand.getItem() instanceof HammerItem && offHand.getItem() instanceof FindItem && offHand.getCount() >= 10) {
+                FindItem findItem = (FindItem) offHand.getItem();
+                for (int i = 0; i < 10; i++) {
+                    findItem.openFind((ServerWorld) world, user);
+                    offHand.decrementUnlessCreative(1, user);
+                }
+            } else if (mainHand.getItem() instanceof HammerItem && offHand.getItem() instanceof FindItem) {
                 FindItem findItem = (FindItem) offHand.getItem();
                 findItem.openFind((ServerWorld) world, user);
-                offHand.decrement(1);
+                offHand.decrementUnlessCreative(1, user);
             }
         }
         return super.use(world, user, hand);

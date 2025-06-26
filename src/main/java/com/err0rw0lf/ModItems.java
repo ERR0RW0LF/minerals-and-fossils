@@ -42,10 +42,23 @@ public class ModItems {
 
     public static final Item HAMMER_HEAD = register("hammer_head", Item::new, new Item.Settings());
 
+    public static final LootTable AMETHYST_FIND_LOOT = new LootTable(Arrays.asList(
+            new LootEntry(Items.AMETHYST_SHARD, 0.5f),
+            new LootEntry(Items.AIR, 0.5f)
+    ));
+
+    public static final Item AMETHYST_FIND = register(
+            "amethyst_find",
+            settings -> new FindItem(AMETHYST_FIND_LOOT, settings),
+            new Item.Settings()
+    );
+
     public static final LootTable STONE_FIND_LOOT = new LootTable(Arrays.asList(
             new LootEntry(Items.DIAMOND, 0.01f),
+            new LootEntry(ModItems.AMETHYST_FIND, 0.01f),
             new LootEntry(Items.COAL, 0.5f),
-            new LootEntry(Items.EMERALD, 0.005f)
+            new LootEntry(Items.EMERALD, 0.005f),
+            new LootEntry(Items.AIR, 0.475f)
     ));
 
     public static final Item STONE_FIND = register(
@@ -56,7 +69,8 @@ public class ModItems {
 
     public static final LootTable SAND_FIND_LOOT = new LootTable(Arrays.asList(
             new LootEntry(Items.GOLD_NUGGET, 0.2f),
-            new LootEntry(Items.IRON_NUGGET, 0.3f)
+            new LootEntry(Items.IRON_NUGGET, 0.3f),
+            new LootEntry(Items.AIR, 0.5f)
     ));
 
     public static final Item SAND_FIND = register(
@@ -74,6 +88,9 @@ public class ModItems {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
                 .register((itemGroup) -> itemGroup.add(ModItems.STONE_FIND));
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
+                .register((itemGroup) -> itemGroup.add(ModItems.AMETHYST_FIND));
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
                 .register((itemGroup) -> itemGroup.add(ModItems.SAND_FIND));
