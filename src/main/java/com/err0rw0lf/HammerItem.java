@@ -40,6 +40,19 @@ public class HammerItem extends MiningToolItem {
                     );
                     world.spawnEntity(drop);
                 }
+            } else if (state.isOf(Blocks.SANDSTONE)) {
+                // 15 % chance to drop
+                if (world.random.nextFloat() < 0.15f) {
+                    // Drop sand find item at the block's position
+                    ItemEntity drop = new ItemEntity(
+                            world,
+                            pos.getX() + 0.5,
+                            pos.getY() + 0.5,
+                            pos.getZ() + 0.5,
+                            new ItemStack(ModItems.SAND_FIND)
+                    );
+                    world.spawnEntity(drop);
+                }
             }
         }
         return super.postMine(stack, world, state, pos, miner);

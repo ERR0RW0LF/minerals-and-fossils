@@ -27,11 +27,12 @@ public class FindItem extends Item {
         for (LootEntry entry : lootTable.lootEntries) {
             cumulative += entry.chance;
             if (roll < cumulative) {
-                ItemEntity drop = new ItemEntity(world, player.getX(), player.getY(), player.getZ(), new ItemStack(entry.item));
-                world.spawnEntity(drop);
+                ItemStack loot = new ItemStack(entry.item);
+                if (!player.getInventory().insertStack(loot.copy())) {
+                    player.dropItem(loot,false);
+                }
                 break;
             }
         }
-        MineralsAndFossils.LOGGER.info("Opened Find Item");
     }
 }

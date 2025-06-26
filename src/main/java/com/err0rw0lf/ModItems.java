@@ -31,7 +31,7 @@ public class ModItems {
 
     public static final ToolMaterial GUIDITE_TOOL_MATERIAL = new ToolMaterial(
             BlockTags.INCORRECT_FOR_WOODEN_TOOL,
-            455,
+            128,
             5.0F,
             1.5F,
             22,
