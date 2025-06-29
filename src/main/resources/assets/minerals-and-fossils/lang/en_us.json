@@ -11,5 +11,11 @@
   "item.minerals-and-fossils.medium_cut_amethyst": "Medium Cut Amethyst",
   "item.minerals-and-fossils.small_uncut_amethyst": "Small Uncut Amethyst",
   "item.minerals-and-fossils.small_cut_amethyst": "Small Cut Amethyst",
-  "item.minerals-and-fossils.amethyst_dust": "Amethyst Dust"
+  "item.minerals-and-fossils.amethyst_dust": "Amethyst Dust",
+  "block.minerals-and-fossils.big_cut_amethyst_block": "Big Cut Amethyst Block",
+  "item.minerals-and-fossils.big_cut_amethyst_block": "Big Cut Amethyst Block",
+  "block.minerals-and-fossils.medium_cut_amethyst_block": "Medium Cut Amethyst Block",
+  "item.minerals-and-fossils.medium_cut_amethyst_block": "Medium Cut Amethyst Block",
+  "block.minerals-and-fossils.small_cut_amethyst_block": "Small Cut Amethyst Block",
+  "item.minerals-and-fossils.small_cut_amethyst_block": "Small Cut Amethyst Block"
 }

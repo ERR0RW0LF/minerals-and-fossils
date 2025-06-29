@@ -1,13 +1,14 @@
 package com.err0rw0lf;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 import java.util.function.Function;
@@ -39,7 +40,30 @@ public class ModBlocks {
         return RegistryKey.of(RegistryKeys.ITEM, Identifier.of(MineralsAndFossils.MOD_ID, name));
     }
 
+    public static final Block BIG_CUT_AMETHYST_BLOCK = register(
+            "big_cut_amethyst_block",
+            TransparentBlock::new,
+            AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).nonOpaque().allowsSpawning(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never).solidBlock(Blocks::never),
+            true
+    );
 
+    public static final Block MEDIUM_CUT_AMETHYST_BLOCK = register(
+            "medium_cut_amethyst_block",
+            TransparentBlock::new,
+            AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).nonOpaque().allowsSpawning(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never).solidBlock(Blocks::never),
+            true
+    );
 
-    public static void initialize() {}
+    public static final Block SMALL_CUT_AMETHYST_BLOCK = register(
+            "small_cut_amethyst_block",
+            TransparentBlock::new,
+            AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).nonOpaque().allowsSpawning(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never).solidBlock(Blocks::never),
+            true
+    );
+
+    public static void initialize() {
+        ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
+            itemGroup.add(ModBlocks.BIG_CUT_AMETHYST_BLOCK.asItem());
+        });
+    }
 }

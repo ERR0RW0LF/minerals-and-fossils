@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "minerals-and-fossils:block/big_cut_amethyst_block"
+  }
+}
