@@ -1,15 +1,14 @@
 package com.err0rw0lf;
 
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.Items;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.util.Arrays;
@@ -29,6 +28,12 @@ public class ModItems {
         return item;
     }
 
+    public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(MineralsAndFossils.MOD_ID, "item_group"));
+    public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(ModItems.AMETHYST_FIND))
+            .displayName(Text.translatable("itemGroup.minerals_and_fossils"))
+            .build();
+
     public static final ToolMaterial GUIDITE_TOOL_MATERIAL = new ToolMaterial(
             BlockTags.INCORRECT_FOR_WOODEN_TOOL,
             128,
@@ -42,9 +47,23 @@ public class ModItems {
 
     public static final Item HAMMER_HEAD = register("hammer_head", Item::new, new Item.Settings());
 
+
+    // Amethyst Items
+    public static final Item SMALL_UNCUT_AMETHYST = register("small_uncut_amethyst", settings -> new GemstoneItem(settings), new Item.Settings());
+    public static final Item MEDIUM_UNCUT_AMETHYST = register("medium_uncut_amethyst", settings -> new GemstoneItem(settings), new Item.Settings());
+    public static final Item BIG_UNCUT_AMETHYST = register("big_uncut_amethyst", settings -> new GemstoneItem(settings), new Item.Settings());
+    public static final Item AMETHYST_DUST = register("amethyst_dust", Item::new, new Item.Settings());
+
+    public static final Item SMALL_CUT_AMETHYST = register("small_cut_amethyst", settings -> new GemstoneItem(settings), new Item.Settings());
+    public static final Item MEDIUM_CUT_AMETHYST = register("medium_cut_amethyst", settings -> new GemstoneItem(settings), new Item.Settings());
+    public static final Item BIG_CUT_AMETHYST = register("big_cut_amethyst", settings -> new GemstoneItem(settings), new Item.Settings());
+
     public static final LootTable AMETHYST_FIND_LOOT = new LootTable(Arrays.asList(
             new LootEntry(Items.AMETHYST_SHARD, 0.5f),
-            new LootEntry(Items.AIR, 0.5f)
+            new LootEntry(ModItems.SMALL_UNCUT_AMETHYST, 0.3f),
+            new LootEntry(ModItems.MEDIUM_UNCUT_AMETHYST, 0.1f),
+            new LootEntry(ModItems.BIG_UNCUT_AMETHYST, 0.05f),
+            new LootEntry(ModItems.AMETHYST_DUST, 0.05f)
     ));
 
     public static final Item AMETHYST_FIND = register(
@@ -80,20 +99,22 @@ public class ModItems {
     );
 
     public static void initialize() {
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS)
-                .register((itemGroup) -> itemGroup.add(ModItems.HAMMER));
+        Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
-                .register((itemGroup) -> itemGroup.add(ModItems.HAMMER_HEAD));
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
-                .register((itemGroup) -> itemGroup.add(ModItems.STONE_FIND));
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
-                .register((itemGroup) -> itemGroup.add(ModItems.AMETHYST_FIND));
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
-                .register((itemGroup) -> itemGroup.add(ModItems.SAND_FIND));
+        ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY).register(itemGroup -> {
+            itemGroup.add(ModItems.HAMMER_HEAD);
+            itemGroup.add(ModItems.HAMMER);
+            itemGroup.add(ModItems.STONE_FIND);
+            itemGroup.add(ModItems.SAND_FIND);
+            itemGroup.add(ModItems.AMETHYST_FIND);
+            itemGroup.add(ModItems.SMALL_UNCUT_AMETHYST);
+            itemGroup.add(ModItems.SMALL_CUT_AMETHYST);
+            itemGroup.add(ModItems.MEDIUM_UNCUT_AMETHYST);
+            itemGroup.add(ModItems.MEDIUM_CUT_AMETHYST);
+            itemGroup.add(ModItems.BIG_UNCUT_AMETHYST);
+            itemGroup.add(ModItems.BIG_CUT_AMETHYST);
+            itemGroup.add(ModItems.AMETHYST_DUST);
+        });
     }
 
 }

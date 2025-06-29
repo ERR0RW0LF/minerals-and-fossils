@@ -3,5 +3,13 @@
   "item.minerals-and-fossils.hammer_head": "Hammer Head",
   "item.minerals-and-fossils.stone_find": "Stone Find",
   "item.minerals-and-fossils.sand_find": "Sand Find",
-  "item.minerals-and-fossils.amethyst_find": "Amethyst Find"
+  "item.minerals-and-fossils.amethyst_find": "Amethyst Find",
+  "itemGroup.minerals_and_fossils": "Minerals and Fossils",
+  "item.minerals-and-fossils.big_uncut_amethyst": "Big Uncut Amethyst",
+  "item.minerals-and-fossils.big_cut_amethyst": "Big Cut Amethyst",
+  "item.minerals-and-fossils.medium_uncut_amethyst": "Medium Uncut Amethyst",
+  "item.minerals-and-fossils.medium_cut_amethyst": "Medium Cut Amethyst",
+  "item.minerals-and-fossils.small_uncut_amethyst": "Small Uncut Amethyst",
+  "item.minerals-and-fossils.small_cut_amethyst": "Small Cut Amethyst",
+  "item.minerals-and-fossils.amethyst_dust": "Amethyst Dust"
 }
