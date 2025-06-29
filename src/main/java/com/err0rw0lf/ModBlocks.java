@@ -63,6 +63,8 @@ public class ModBlocks {
 
     public static void initialize() {
         ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
+            itemGroup.add(ModBlocks.SMALL_CUT_AMETHYST_BLOCK.asItem());
+            itemGroup.add(ModBlocks.MEDIUM_CUT_AMETHYST_BLOCK.asItem());
             itemGroup.add(ModBlocks.BIG_CUT_AMETHYST_BLOCK.asItem());
         });
     }
