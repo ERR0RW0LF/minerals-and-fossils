@@ -53,6 +53,34 @@ public class HammerItem extends MiningToolItem {
                     );
                     world.spawnEntity(drop);
                 }
+            } else if (state.isOf(Blocks.AMETHYST_CLUSTER)) {
+                // 15 % chance to drop an extra item
+                if (world.random.nextFloat() < 0.15f) {
+                    // Get drop from Amethyst Find Loot table
+                    LootTable lootTable = ModItems.AMETHYST_FIND_LOOT;
+                    float totalWeight = 0f;
+                    for (LootEntry entry : ModItems.AMETHYST_FIND_LOOT.lootEntries) {
+                        totalWeight += entry.chance;
+                    }
+
+                    float roll = world.random.nextFloat() * totalWeight;
+                    float cumulative = 0f;
+
+                    for (LootEntry entry : lootTable.lootEntries) {
+                        cumulative += entry.chance;
+                        if (roll < cumulative) {
+                            ItemEntity drop = new ItemEntity(
+                                    world,
+                                    pos.getX() + 0.5,
+                                    pos.getY() + 0.5,
+                                    pos.getZ() + 0.5,
+                                    new ItemStack(entry.item)
+                            );
+                            world.spawnEntity(drop);
+                            break;
+                        }
+                    }
+                }
             }
         }
         return super.postMine(stack, world, state, pos, miner);
