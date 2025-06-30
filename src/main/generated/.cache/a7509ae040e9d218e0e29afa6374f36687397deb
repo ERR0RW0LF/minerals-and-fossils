@@ -1,5 +1,13 @@
 // 1.21.4	-999999999-01-01T00:00:00	Minerals And Fossils/MineralAndFossilsRecipeProvider
-65ef999b0c60e39d4abc821723f61a61b5a0965c data/minerals-and-fossils/advancement/recipes/misc/hammer.json
-8e63b4d808784fedf5dd4384f6b6cfa5c0c94c72 data/minerals-and-fossils/advancement/recipes/misc/hammer_head.json
-ff414cf8e16a9a41dc94b1ee4a954891c80f1eca data/minerals-and-fossils/recipe/hammer.json
-2093dd6f08834426a6a55dc49da388ef92b07139 data/minerals-and-fossils/recipe/hammer_head.json
+4bd19c93d281106bdc2f3bc3c06106b35e76152c data/minerals-and-fossils/advancement/recipes/misc/big_cut_amethyst_block.json
+69790acff0074d3c4cbbfea76f58c7a97c1ad46c data/minerals-and-fossils/advancement/recipes/misc/gemstone_workstation_block.json
+9780bafca385445dae1f7a7925ffe4913a0e03a8 data/minerals-and-fossils/advancement/recipes/misc/hammer.json
+38136b12c13c236f7815735e9431eaf6519ea345 data/minerals-and-fossils/advancement/recipes/misc/hammer_head.json
+a03151e60aec5e37e046a393561434002628a337 data/minerals-and-fossils/advancement/recipes/misc/medium_cut_amethyst_block.json
+4f4a5ac25edf5ea3e69c1c74d9e342fa8c7638fa data/minerals-and-fossils/advancement/recipes/misc/small_cut_amethyst_block.json
+0c76448487fa1a63421ede20c2ea4deda05e4571 data/minerals-and-fossils/recipe/big_cut_amethyst_block.json
+8bd1548a5a465a7b3821631469ee649ae0755e0d data/minerals-and-fossils/recipe/gemstone_workstation_block.json
+ce0b6bb96d6ae73b6c8c3b2974ec9e2d0dc086e6 data/minerals-and-fossils/recipe/hammer.json
+7b8920d4dbcdf97a5db5e8dec43d8f358ff369db data/minerals-and-fossils/recipe/hammer_head.json
+f12c069bc02e397ed1c6f0f531fa0b55ee76944c data/minerals-and-fossils/recipe/medium_cut_amethyst_block.json
+09e617da542873fdbaf7f9baed0bc0c55cb3171b data/minerals-and-fossils/recipe/small_cut_amethyst_block.json

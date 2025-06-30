@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minerals-and-fossils:medium_cut_amethyst",
+    "minerals-and-fossils:medium_cut_amethyst",
+    "minerals-and-fossils:medium_cut_amethyst",
+    "minerals-and-fossils:medium_cut_amethyst",
+    "minerals-and-fossils:medium_cut_amethyst",
+    "minerals-and-fossils:medium_cut_amethyst",
+    "minerals-and-fossils:medium_cut_amethyst",
+    "minerals-and-fossils:medium_cut_amethyst",
+    "minerals-and-fossils:medium_cut_amethyst"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minerals-and-fossils:medium_cut_amethyst_block"
+  }
+}

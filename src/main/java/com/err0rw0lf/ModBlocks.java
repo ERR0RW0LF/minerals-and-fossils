@@ -43,21 +43,28 @@ public class ModBlocks {
     public static final Block BIG_CUT_AMETHYST_BLOCK = register(
             "big_cut_amethyst_block",
             TransparentBlock::new,
-            AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).nonOpaque().allowsSpawning(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never).solidBlock(Blocks::never),
+            AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).strength(0.3F).nonOpaque().allowsSpawning(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never).solidBlock(Blocks::never),
             true
     );
 
     public static final Block MEDIUM_CUT_AMETHYST_BLOCK = register(
             "medium_cut_amethyst_block",
             TransparentBlock::new,
-            AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).nonOpaque().allowsSpawning(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never).solidBlock(Blocks::never),
+            AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).strength(0.3F).nonOpaque().allowsSpawning(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never).solidBlock(Blocks::never),
             true
     );
 
     public static final Block SMALL_CUT_AMETHYST_BLOCK = register(
             "small_cut_amethyst_block",
             TransparentBlock::new,
-            AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).nonOpaque().allowsSpawning(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never).solidBlock(Blocks::never),
+            AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).strength(0.3F).nonOpaque().allowsSpawning(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never).solidBlock(Blocks::never),
+            true
+    );
+
+    public static final Block GEMSTONE_WORKSTATION_BLOCK = register(
+            "gemstone_workstation_block",
+            GemstoneWorkstationBlock::new,
+            AbstractBlock.Settings.create().requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL),
             true
     );
 
@@ -66,6 +73,7 @@ public class ModBlocks {
             itemGroup.add(ModBlocks.SMALL_CUT_AMETHYST_BLOCK.asItem());
             itemGroup.add(ModBlocks.MEDIUM_CUT_AMETHYST_BLOCK.asItem());
             itemGroup.add(ModBlocks.BIG_CUT_AMETHYST_BLOCK.asItem());
+            itemGroup.add(ModBlocks.GEMSTONE_WORKSTATION_BLOCK.asItem());
         });
     }
 }

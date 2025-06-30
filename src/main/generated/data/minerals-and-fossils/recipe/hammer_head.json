@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "multi_bench",
   "key": {
     "b": "minecraft:iron_block",
     "i": "minecraft:iron_ingot"

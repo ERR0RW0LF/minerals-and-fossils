@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/iron_block",
+    "east": "minerals-and-fossils:block/gemstone_workstation_side",
+    "north": "minerals-and-fossils:block/gemstone_workstation_front",
+    "particle": "minerals-and-fossils:block/gemstone_workstation_front",
+    "south": "minerals-and-fossils:block/gemstone_workstation_side",
+    "up": "minerals-and-fossils:block/gemstone_workstation_top",
+    "west": "minerals-and-fossils:block/gemstone_workstation_front"
+  }
+}

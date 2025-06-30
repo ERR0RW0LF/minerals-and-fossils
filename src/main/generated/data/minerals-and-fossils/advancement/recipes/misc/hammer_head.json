@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_hammer_head": {
+    "has_iron_ingot": {
       "conditions": {
         "items": [
           {
-            "items": "minerals-and-fossils:hammer_head"
+            "items": "minecraft:iron_ingot"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_hammer_head"
+      "has_iron_ingot"
     ]
   ],
   "rewards": {

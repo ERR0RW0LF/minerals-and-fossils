@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "multi_bench",
   "key": {
     "h": "minerals-and-fossils:hammer_head",
     "s": "minecraft:stick"

@@ -17,5 +17,8 @@
   "block.minerals-and-fossils.medium_cut_amethyst_block": "Medium Cut Amethyst Block",
   "item.minerals-and-fossils.medium_cut_amethyst_block": "Medium Cut Amethyst Block",
   "block.minerals-and-fossils.small_cut_amethyst_block": "Small Cut Amethyst Block",
-  "item.minerals-and-fossils.small_cut_amethyst_block": "Small Cut Amethyst Block"
+  "item.minerals-and-fossils.small_cut_amethyst_block": "Small Cut Amethyst Block",
+  "container.working": "Working",
+  "block.minerals-and-fossils.gemstone_workstation_block": "Gemstone Workstation",
+  "item.minerals-and-fossils.gemstone_workstation_block": "Gemstone Workstation"
 }

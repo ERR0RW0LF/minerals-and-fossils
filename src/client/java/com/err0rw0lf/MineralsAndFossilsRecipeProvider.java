@@ -31,8 +31,7 @@ public class MineralsAndFossilsRecipeProvider extends FabricRecipeProvider {
                         .pattern("ibi")
                         .input('i', Items.IRON_INGOT)
                         .input('b', Items.IRON_BLOCK)
-                        .group("multi_bench")
-                        .criterion(hasItem(ModItems.HAMMER_HEAD),conditionsFromItem(ModItems.HAMMER_HEAD))
+                        .criterion(hasItem(Items.IRON_INGOT),conditionsFromItem(Items.IRON_INGOT))
                         .offerTo(exporter);
 
                 // Hammer recipe
@@ -42,10 +41,31 @@ public class MineralsAndFossilsRecipeProvider extends FabricRecipeProvider {
                         .pattern("s")
                         .input('h', ModItems.HAMMER_HEAD)
                         .input('s', Items.STICK)
-                        .group("multi_bench")
-                        .criterion(hasItem(ModItems.HAMMER),conditionsFromItem(ModItems.HAMMER))
+                        .criterion(hasItem(ModItems.HAMMER_HEAD),conditionsFromItem(ModItems.HAMMER_HEAD))
                         .offerTo(exporter);
 
+                createShapeless(RecipeCategory.MISC, ModBlocks.SMALL_CUT_AMETHYST_BLOCK.asItem(), 1)
+                        .input(ModItems.SMALL_CUT_AMETHYST, 9)
+                        .criterion(hasItem(ModItems.SMALL_CUT_AMETHYST), conditionsFromItem(ModItems.SMALL_CUT_AMETHYST))
+                        .offerTo(exporter);
+                createShapeless(RecipeCategory.MISC, ModBlocks.MEDIUM_CUT_AMETHYST_BLOCK.asItem(), 1)
+                        .input(ModItems.MEDIUM_CUT_AMETHYST, 9)
+                        .criterion(hasItem(ModItems.MEDIUM_CUT_AMETHYST), conditionsFromItem(ModItems.MEDIUM_CUT_AMETHYST))
+                        .offerTo(exporter);
+                createShapeless(RecipeCategory.MISC, ModBlocks.BIG_CUT_AMETHYST_BLOCK.asItem(), 1)
+                        .input(ModItems.BIG_CUT_AMETHYST, 9)
+                        .criterion(hasItem(ModItems.BIG_CUT_AMETHYST), conditionsFromItem(ModItems.BIG_CUT_AMETHYST))
+                        .offerTo(exporter);
+
+                createShaped(RecipeCategory.MISC, ModBlocks.GEMSTONE_WORKSTATION_BLOCK.asItem(), 1)
+                        .pattern("hs")
+                        .pattern("ii")
+                        .pattern("ii")
+                        .input('h', ModItems.HAMMER)
+                        .input('s', Items.SAND)
+                        .input('i', Items.IRON_BLOCK)
+                        .criterion(hasItem(ModItems.HAMMER), conditionsFromItem(ModItems.HAMMER))
+                        .offerTo(exporter);
             }
         };
     }

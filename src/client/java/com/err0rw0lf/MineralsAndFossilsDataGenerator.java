@@ -7,6 +7,9 @@ public class MineralsAndFossilsDataGenerator implements DataGeneratorEntrypoint 
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
+		pack.addProvider(MineralsAndFossilsItemTagProvider::new);
+		pack.addProvider(MineralsAndFossilsBlockTagProvider::new);
 		pack.addProvider(MineralsAndFossilsRecipeProvider::new);
+		pack.addProvider(MineralsAndFossilsBlockLootTableProvider::new);
 	}
 }

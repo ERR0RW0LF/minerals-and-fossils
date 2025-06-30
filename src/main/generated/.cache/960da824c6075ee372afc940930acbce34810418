@@ -1,0 +1,5 @@
+// 1.21.4	-999999999-01-01T00:00:00	Minerals And Fossils/Block Loot Tables
+d4978a8cc3364079a333db66df950e78e4bb7d0b data/minerals-and-fossils/loot_table/blocks/big_cut_amethyst_block.json
+53ebcd94b08f45d4e5eeb55ee486a7f268aecd97 data/minerals-and-fossils/loot_table/blocks/gemstone_workstation_block.json
+a0ee014d834be976b718c67d894a10e70d10ab15 data/minerals-and-fossils/loot_table/blocks/medium_cut_amethyst_block.json
+8223af046381c147d51080a041b94edf9c95e05a data/minerals-and-fossils/loot_table/blocks/small_cut_amethyst_block.json

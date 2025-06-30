@@ -49,14 +49,16 @@ public class ModItems {
 
 
     // Amethyst Items
-    public static final Item SMALL_UNCUT_AMETHYST = register("small_uncut_amethyst", settings -> new GemstoneItem(settings), new Item.Settings());
-    public static final Item MEDIUM_UNCUT_AMETHYST = register("medium_uncut_amethyst", settings -> new GemstoneItem(settings), new Item.Settings());
-    public static final Item BIG_UNCUT_AMETHYST = register("big_uncut_amethyst", settings -> new GemstoneItem(settings), new Item.Settings());
+    public static final Item SMALL_CUT_AMETHYST = register("small_cut_amethyst", settings -> new GemstoneItem(true, Items.AIR, settings), new Item.Settings());
+    public static final Item MEDIUM_CUT_AMETHYST = register("medium_cut_amethyst", settings -> new GemstoneItem(true, Items.AIR, settings), new Item.Settings());
+    public static final Item BIG_CUT_AMETHYST = register("big_cut_amethyst", settings -> new GemstoneItem(true, Items.AIR, settings), new Item.Settings());
+
+    public static final Item SMALL_UNCUT_AMETHYST = register("small_uncut_amethyst", settings -> new GemstoneItem(false, ModItems.SMALL_CUT_AMETHYST, settings), new Item.Settings());
+    public static final Item MEDIUM_UNCUT_AMETHYST = register("medium_uncut_amethyst", settings -> new GemstoneItem(false, ModItems.MEDIUM_CUT_AMETHYST, settings), new Item.Settings());
+    public static final Item BIG_UNCUT_AMETHYST = register("big_uncut_amethyst", settings -> new GemstoneItem(false, ModItems.BIG_CUT_AMETHYST, settings), new Item.Settings());
     public static final Item AMETHYST_DUST = register("amethyst_dust", Item::new, new Item.Settings());
 
-    public static final Item SMALL_CUT_AMETHYST = register("small_cut_amethyst", settings -> new GemstoneItem(settings), new Item.Settings());
-    public static final Item MEDIUM_CUT_AMETHYST = register("medium_cut_amethyst", settings -> new GemstoneItem(settings), new Item.Settings());
-    public static final Item BIG_CUT_AMETHYST = register("big_cut_amethyst", settings -> new GemstoneItem(settings), new Item.Settings());
+
 
     public static final LootTable AMETHYST_FIND_LOOT = new LootTable(Arrays.asList(
             new LootEntry(Items.AMETHYST_SHARD, 0.5f),
@@ -108,12 +110,12 @@ public class ModItems {
             itemGroup.add(ModItems.SAND_FIND);
             itemGroup.add(ModItems.AMETHYST_FIND);
             itemGroup.add(ModItems.SMALL_UNCUT_AMETHYST);
-            itemGroup.add(ModItems.SMALL_CUT_AMETHYST);
             itemGroup.add(ModItems.MEDIUM_UNCUT_AMETHYST);
-            itemGroup.add(ModItems.MEDIUM_CUT_AMETHYST);
             itemGroup.add(ModItems.BIG_UNCUT_AMETHYST);
-            itemGroup.add(ModItems.BIG_CUT_AMETHYST);
             itemGroup.add(ModItems.AMETHYST_DUST);
+            itemGroup.add(ModItems.SMALL_CUT_AMETHYST);
+            itemGroup.add(ModItems.MEDIUM_CUT_AMETHYST);
+            itemGroup.add(ModItems.BIG_CUT_AMETHYST);
         });
     }
 

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_hammer_head": {
+    "has_big_cut_amethyst": {
       "conditions": {
         "items": [
           {
-            "items": "minerals-and-fossils:hammer_head"
+            "items": "minerals-and-fossils:big_cut_amethyst"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minerals-and-fossils:hammer"
+        "recipe": "minerals-and-fossils:big_cut_amethyst_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_hammer_head"
+      "has_big_cut_amethyst"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minerals-and-fossils:hammer"
+      "minerals-and-fossils:big_cut_amethyst_block"
     ]
   }
 }

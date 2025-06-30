@@ -1,0 +1,9 @@
+{
+  "replace": true,
+  "values": [
+    "minerals-and-fossils:gemstone_workstation_block",
+    "minerals-and-fossils:big_cut_amethyst_block",
+    "minerals-and-fossils:medium_cut_amethyst_block",
+    "minerals-and-fossils:small_cut_amethyst_block"
+  ]
+}
