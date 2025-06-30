@@ -81,6 +81,19 @@ public class HammerItem extends MiningToolItem {
                         }
                     }
                 }
+            } else if (state.isOf(Blocks.IRON_ORE) || state.isOf(Blocks.DEEPSLATE_IRON_ORE)) {
+                // 10% chance to drop Almandine
+                if (world.random.nextFloat() < 0.1f) {
+                    // Drop Almandine item at the block's position
+                    ItemEntity drop = new ItemEntity(
+                            world,
+                            pos.getX() + 0.5,
+                            pos.getY() + 0.5,
+                            pos.getZ() + 0.5,
+                            new ItemStack(ModItems.UNCUT_ALMANDINE)
+                    );
+                    world.spawnEntity(drop);
+                }
             }
         }
         return super.postMine(stack, world, state, pos, miner);
