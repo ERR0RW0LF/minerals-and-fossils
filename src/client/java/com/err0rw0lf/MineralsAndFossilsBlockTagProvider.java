@@ -11,7 +11,9 @@ import net.minecraft.util.Identifier;
 import java.util.concurrent.CompletableFuture;
 
 public class MineralsAndFossilsBlockTagProvider extends FabricTagProvider<Block> {
-    public static final TagKey<Block> PICKAXE = TagKey.of(RegistryKeys.BLOCK, Identifier.of("pickaxe"));
+    public static final TagKey<Block> PICKAXE = TagKey.of(RegistryKeys.BLOCK, Identifier.of("mineable/pickaxe"));
+    public static final TagKey<Block> NEEDS_IRON_TOOL = TagKey.of(RegistryKeys.BLOCK, Identifier.of("needs_iron_tool"));
+
     public MineralsAndFossilsBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, RegistryKeys.BLOCK, registriesFuture);
     }
@@ -22,7 +24,9 @@ public class MineralsAndFossilsBlockTagProvider extends FabricTagProvider<Block>
                 .add(ModBlocks.GEMSTONE_WORKSTATION_BLOCK)
                 .add(ModBlocks.BIG_CUT_AMETHYST_BLOCK)
                 .add(ModBlocks.MEDIUM_CUT_AMETHYST_BLOCK)
-                .add(ModBlocks.SMALL_CUT_AMETHYST_BLOCK)
-                .setReplace(true);
+                .add(ModBlocks.SMALL_CUT_AMETHYST_BLOCK);
+
+        getOrCreateTagBuilder(NEEDS_IRON_TOOL)
+                .add(ModBlocks.GEMSTONE_WORKSTATION_BLOCK);
     }
 }

@@ -1,2 +1,3 @@
 // 1.21.4	-999999999-01-01T00:00:00	Minerals And Fossils/Tags for minecraft:block
-8a9566b2d2c13733481dc713d0d3c05797231f40 data/minecraft/tags/block/pickaxe.json
+7c3b15c781f8da8ef2457a32f82d0fef052b5aec data/minecraft/tags/block/mineable/pickaxe.json
+17a6f74d24862b3d4e6ad6050c8dc1382a7273f0 data/minecraft/tags/block/needs_iron_tool.json

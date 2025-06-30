@@ -74,12 +74,19 @@ public class ModItems {
             new Item.Settings()
     );
 
+    // Almandine:
+    public static final Item CUT_ALMANDINE = register("cut_almandine", settings -> new GemstoneItem(true, Items.AIR, settings), new Item.Settings());
+
+    public static final Item UNCUT_ALMANDINE = register("uncut_almandine", settings -> new GemstoneItem(false, ModItems.CUT_ALMANDINE, settings), new Item.Settings());
+
+
     public static final LootTable STONE_FIND_LOOT = new LootTable(Arrays.asList(
             new LootEntry(Items.DIAMOND, 0.01f),
             new LootEntry(ModItems.AMETHYST_FIND, 0.01f),
+            new LootEntry(ModItems.UNCUT_ALMANDINE, 0.01f),
             new LootEntry(Items.COAL, 0.5f),
             new LootEntry(Items.EMERALD, 0.005f),
-            new LootEntry(Items.AIR, 0.475f)
+            new LootEntry(Items.AIR, 0.465f)
     ));
 
     public static final Item STONE_FIND = register(
@@ -87,6 +94,16 @@ public class ModItems {
             settings -> new FindItem(STONE_FIND_LOOT, settings),
             new Item.Settings()
     );
+
+
+    // Garnet:
+    // - Almandine
+    // - Pyrope
+    // - Spessartine
+    // - Grossular
+    // - Demantoid
+
+
 
     public static final LootTable SAND_FIND_LOOT = new LootTable(Arrays.asList(
             new LootEntry(Items.GOLD_NUGGET, 0.2f),
@@ -116,6 +133,8 @@ public class ModItems {
             itemGroup.add(ModItems.SMALL_CUT_AMETHYST);
             itemGroup.add(ModItems.MEDIUM_CUT_AMETHYST);
             itemGroup.add(ModItems.BIG_CUT_AMETHYST);
+            itemGroup.add(ModItems.UNCUT_ALMANDINE);
+            itemGroup.add(ModItems.CUT_ALMANDINE);
         });
     }
 

@@ -4,9 +4,13 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.EndRodBlock;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -43,9 +47,21 @@ public class GemstoneWorkstationBlock extends Block {
                         ItemEntity drop = new ItemEntity(
                                 world,
                                 pos.getX() + 0.5,
-                                pos.getY() + 1.0,
+                                pos.getY() + 1.5,
                                 pos.getZ() + 0.5,
                                 new ItemStack(gemstoneItem.result)
+                        );
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD,
+                                pos.getX() + 0.5,
+                                pos.getY() + 1.5,
+                                pos.getZ() + 0.5,
+                                5, 0, 0, 0, 0.05
+                        );
+                        ((ServerWorld) world).spawnParticles(ParticleTypes.ELECTRIC_SPARK,
+                                pos.getX() + 0.5,
+                                pos.getY() + 1.5,
+                                pos.getZ() + 0.5,
+                                5, 0, 0, 0, 0.05
                         );
                         world.spawnEntity(drop);
                     }
