@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minerals-and-fossils:item/ammonite_fossil"
+  }
+}

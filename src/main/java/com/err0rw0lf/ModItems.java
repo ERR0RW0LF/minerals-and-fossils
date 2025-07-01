@@ -50,8 +50,23 @@ public class ModItems {
 
     // Fossils
 
+    // Ammonite
+    public static final Item AMMONITE_FOSSIL = register(
+            "ammonite_fossil",
+            settings -> new FossilItem(settings),
+            new Item.Settings()
+    );
+
+    // Horseshoe crab fossil
+    public static final Item HORSESHOE_CRAB_FOSSIL  = register(
+            "horseshoe_crab_fossil",
+            settings -> new FossilItem(settings),
+            new Item.Settings()
+    );
+
     public static final LootTable FOSSIL_FIND_LOOT = new LootTable(Arrays.asList(
-            new LootEntry(Items.IRON_BLOCK, 1.0f) // TODO: Replace later with fossils
+            new LootEntry(ModItems.AMMONITE_FOSSIL, 0.5f), // TODO: Add more fossils
+            new LootEntry(ModItems.HORSESHOE_CRAB_FOSSIL, 0.5f)
     ));
 
     public static final Item FOSSIL_FIND = register(
@@ -144,6 +159,8 @@ public class ModItems {
             itemGroup.add(ModItems.STONE_FIND);
             itemGroup.add(ModItems.SAND_FIND);
             itemGroup.add(ModItems.FOSSIL_FIND);
+            itemGroup.add(ModItems.AMMONITE_FOSSIL);
+            itemGroup.add(ModItems.HORSESHOE_CRAB_FOSSIL);
             itemGroup.add(ModItems.AMETHYST_FIND);
             itemGroup.add(ModItems.SMALL_UNCUT_AMETHYST);
             itemGroup.add(ModItems.MEDIUM_UNCUT_AMETHYST);
