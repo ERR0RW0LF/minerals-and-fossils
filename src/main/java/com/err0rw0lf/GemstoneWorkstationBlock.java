@@ -58,7 +58,7 @@ public class GemstoneWorkstationBlock extends Block {
                                 pos.getX() + 0.5,
                                 pos.getY() + 1.5,
                                 pos.getZ() + 0.5,
-                                5, 0, 0, 0, 0.05
+                                10, 0, 0, 0, 0.5
                         );
                         world.spawnEntity(drop);
                     }

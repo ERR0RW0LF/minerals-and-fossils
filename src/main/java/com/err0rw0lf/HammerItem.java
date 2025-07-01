@@ -2,10 +2,12 @@ package com.err0rw0lf;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
@@ -24,7 +26,7 @@ public class HammerItem extends MiningToolItem {
 
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
-        // Only on server side to avoid double drops
+        // Only on the server side to avoid double drops
         if (!world.isClient) {
             // Check if the mined block is stone (or your specific stone block)
             if (state.isOf(Blocks.STONE)) {
@@ -56,7 +58,7 @@ public class HammerItem extends MiningToolItem {
             } else if (state.isOf(Blocks.AMETHYST_CLUSTER)) {
                 // 15 % chance to drop an extra item
                 if (world.random.nextFloat() < 0.15f) {
-                    // Get drop from Amethyst Find Loot table
+                    // Get the drop from Amethyst Find Loot table
                     LootTable lootTable = ModItems.AMETHYST_FIND_LOOT;
                     float totalWeight = 0f;
                     for (LootEntry entry : ModItems.AMETHYST_FIND_LOOT.lootEntries) {
@@ -107,18 +109,34 @@ public class HammerItem extends MiningToolItem {
 
         // check if player is sneaking
         if (!world.isClient) {
-            if (user.isSneaking() && mainHand.getItem() instanceof HammerItem && offHand.getItem() instanceof FindItem && offHand.getCount() >= 10) {
-                FindItem findItem = (FindItem) offHand.getItem();
+            if (user.isSneaking() && mainHand.getItem() instanceof HammerItem && offHand.getItem() instanceof FindItem findItem && offHand.getCount() >= 10) {
                 for (int i = 0; i < 10; i++) {
                     findItem.openFind((ServerWorld) world, user);
                     offHand.decrementUnlessCreative(1, user);
+                    mainHand.damage(1, user, EquipmentSlot.MAINHAND);
                 }
-            } else if (mainHand.getItem() instanceof HammerItem && offHand.getItem() instanceof FindItem) {
-                FindItem findItem = (FindItem) offHand.getItem();
+                //  VisualEffects(world, user);
+            } else if (mainHand.getItem() instanceof HammerItem && offHand.getItem() instanceof FindItem findItem) {
                 findItem.openFind((ServerWorld) world, user);
                 offHand.decrementUnlessCreative(1, user);
+                mainHand.damage(1, user, EquipmentSlot.MAINHAND);
+                //VisualEffects(world, user);
             }
+            String userPitch = "Pitch: " + user.getPitch();
+            String userYaw = "Yaw: " + user.getYaw();
+
+            // MineralsAndFossils.LOGGER.info(userPitch);
+            // MineralsAndFossils.LOGGER.info(userYaw);
         }
         return super.use(world, user, hand);
+    }
+
+    private void VisualEffects(World world, PlayerEntity user) {
+        ((ServerWorld) world).spawnParticles(ParticleTypes.CLOUD,
+                user.getX() + Math.cos(((user.getYaw()+90)/180)*Math.PI)*Math.sin(((user.getPitch()+90)/180)*Math.PI)*1,
+                user.getY() + 1.5 + Math.cos(((user.getPitch()+90)/180)*Math.PI)*1,
+                user.getZ() + Math.sin(((user.getYaw()+90)/180)*Math.PI)*Math.sin(((user.getPitch()+90)/180)*Math.PI)*1,
+                10, 0, 0, 0, 0.2
+        );
     }
 }

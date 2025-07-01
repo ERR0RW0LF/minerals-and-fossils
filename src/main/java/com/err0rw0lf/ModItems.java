@@ -143,6 +143,7 @@ public class ModItems {
             itemGroup.add(ModItems.HAMMER);
             itemGroup.add(ModItems.STONE_FIND);
             itemGroup.add(ModItems.SAND_FIND);
+            itemGroup.add(ModItems.FOSSIL_FIND);
             itemGroup.add(ModItems.AMETHYST_FIND);
             itemGroup.add(ModItems.SMALL_UNCUT_AMETHYST);
             itemGroup.add(ModItems.MEDIUM_UNCUT_AMETHYST);
