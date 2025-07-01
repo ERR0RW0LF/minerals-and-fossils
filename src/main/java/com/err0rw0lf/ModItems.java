@@ -48,6 +48,23 @@ public class ModItems {
     public static final Item HAMMER_HEAD = register("hammer_head", Item::new, new Item.Settings());
 
 
+    // Fossils
+
+    public static final LootTable FOSSIL_FIND_LOOT = new LootTable(Arrays.asList(
+            new LootEntry(Items.IRON_BLOCK, 1.0f) // TODO: Replace later with fossils
+    ));
+
+    public static final Item FOSSIL_FIND = register(
+            "fossil_find",
+            settings -> new FindItem(FOSSIL_FIND_LOOT, settings),
+            new Item.Settings()
+    );
+
+
+
+
+
+
     // Amethyst Items
     public static final Item SMALL_CUT_AMETHYST = register("small_cut_amethyst", settings -> new GemstoneItem(true, Items.AIR, settings), new Item.Settings());
     public static final Item MEDIUM_CUT_AMETHYST = register("medium_cut_amethyst", settings -> new GemstoneItem(true, Items.AIR, settings), new Item.Settings());
@@ -84,9 +101,10 @@ public class ModItems {
             new LootEntry(Items.DIAMOND, 0.01f),
             new LootEntry(ModItems.AMETHYST_FIND, 0.01f),
             new LootEntry(ModItems.UNCUT_ALMANDINE, 0.01f),
+            new LootEntry(ModItems.FOSSIL_FIND, 0.01f),
             new LootEntry(Items.COAL, 0.5f),
             new LootEntry(Items.EMERALD, 0.005f),
-            new LootEntry(Items.AIR, 0.465f)
+            new LootEntry(Items.AIR, 0.41f)
     ));
 
     public static final Item STONE_FIND = register(
